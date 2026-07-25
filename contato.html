@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - Zyntra</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header>
-        <h1>Zyntra</h1>
+        <div class="logo">Zyntra<span>.</span></div>
 
         <nav>
             <a href="index.html">Início</a>
@@ -22,51 +21,39 @@
         </nav>
     </header>
 
-
     <main>
-
-        <section class="contato">
-
+        <section class="contact-section">
             <h2>Entre em contato</h2>
 
             <p>
                 Preencha o formulário abaixo e nossa equipe entrará em contato com você.
             </p>
 
-
             <form>
+                <label for="nome">Nome
+                    <input type="text" id="nome" placeholder="Digite seu nome">
+                </label>
 
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Digite seu nome">
+                <label for="email">E-mail
+                    <input type="email" id="email" placeholder="Digite seu e-mail">
+                </label>
 
+                <label for="telefone">Telefone
+                    <input type="tel" id="telefone" placeholder="Digite seu número de telefone">
+                </label>
 
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="Digite seu e-mail">
+                <label for="mensagem">Mensagem
+                    <textarea id="mensagem" placeholder="Digite sua mensagem"></textarea>
+                </label>
 
-
-                <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" placeholder="Digite seu número de telefone">
-
-
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" placeholder="Digite sua mensagem"></textarea>
-
-
-                <button type="submit">
-                    Enviar mensagem
-                </button>
-
+                <button type="submit">Enviar mensagem</button>
             </form>
-
         </section>
-
     </main>
-
 
     <footer>
         <p>© 2026 Zyntra - Todos os direitos reservados.</p>
     </footer>
-
 
 </body>
 
