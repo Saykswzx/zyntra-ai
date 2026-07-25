@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
             try {
-                // 3. Envia para o seu backend rodando na porta 3000
-                const response = await fetch("https://zyntra-ai-s40h.onrender.com", {
+                // 3. Envia para o seu backend no Render com a rota correta (/api/chat)
+                const response = await fetch("https://zyntra-ai-s40h.onrender.com/api/chat", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
