@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
                 // 3. Envia para o seu backend rodando na porta 3000
-                const response = await fetch("http://localhost:3000/api/chat", {
+                const response = await fetch("https://zyntra-ai-s40h.onrender.com", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
