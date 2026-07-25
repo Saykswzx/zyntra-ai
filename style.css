@@ -337,9 +337,9 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 30px 20px 10px 20px;
     text-align: center;
-    min-height: 80vh;
+    min-height: auto;
 }
 
 .contact-section h2 {
@@ -351,7 +351,7 @@ button:hover {
 .contact-section p {
     color: #aaa;
     font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     max-width: 500px;
 }
 
@@ -562,7 +562,7 @@ form button {
 ========================= */
 
 footer {
-    padding: 30px 20px;
+    padding: 15px 20px 25px 20px;
     text-align: center;
     color: #777;
     font-size: 14px;
