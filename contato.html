@@ -29,21 +29,21 @@
                 Preencha o formulário abaixo e nossa equipe entrará em contato com você.
             </p>
 
-            <form>
+            <form action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
                 <label for="nome">Nome
-                    <input type="text" id="nome" placeholder="Digite seu nome">
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
                 </label>
 
                 <label for="email">E-mail
-                    <input type="email" id="email" placeholder="Digite seu e-mail">
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
                 </label>
 
                 <label for="telefone">Telefone
-                    <input type="tel" id="telefone" placeholder="Digite seu número de telefone">
+                    <input type="tel" id="telefone" name="telefone" placeholder="Digite seu número de telefone" required>
                 </label>
 
                 <label for="mensagem">Mensagem
-                    <textarea id="mensagem" placeholder="Digite sua mensagem"></textarea>
+                    <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" required></textarea>
                 </label>
 
                 <button type="submit">Enviar mensagem</button>
