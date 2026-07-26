@@ -22,7 +22,7 @@
             <a href="#planos">Planos</a>
             <a href="contato.html">Contato</a>
             <a href="login.html" class="nav-login">Login</a>
-            <a href="painel.html" onclick="verificarAcesso(event)" style="font-size: 13px; color: #64748b; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color 0.2s;" onmouseover="this.style.color='#cbd5e1'" onmouseout="this.style.color='#64748b'">
+            <a href="dashboard.html" onclick="verificarAcesso(event)" style="font-size: 13px; color: #64748b; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color 0.2s;" onmouseover="this.style.color='#cbd5e1'" onmouseout="this.style.color='#64748b'">
                 <i class="fa-solid fa-lock"></i> Equipe
             </a>
         </nav>
@@ -134,11 +134,10 @@
             
             let senhaDigitada = prompt("Digite a senha de acesso da Equipe Zyntra:");
             
-            // Defina a sua senha secreta aqui (você pode alterar depois)
             let senhaCorreta = "zyntra2026"; 
             
             if (senhaDigitada === senhaCorreta) {
-                window.location.href = "painel.html"; // Vai para o painel se a senha estiver certa
+                window.location.href = "dashboard.html"; // Redireciona corretamente para o seu dashboard.html
             } else if (senhaDigitada !== null) {
                 alert("Senha incorreta! Acesso negado.");
             }
