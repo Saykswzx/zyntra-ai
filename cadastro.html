@@ -1,66 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Criar conta | Zyntra</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyntra - Criar Conta</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #38bdf8;
+        }
+        .input-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #334155;
+            background-color: #0f172a;
+            color: #fff;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0ea5e9;
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .link a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        #mensagem {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    </style>
 </head>
-
-
 <body>
 
+    <div class="card">
+        <h2>Criar Conta na Zyntra</h2>
+        <form id="formCadastro">
+            <div class="input-group">
+                <label>E-mail</label>
+                <input type="email" id="email" required placeholder="seu@email.com">
+            </div>
+            <div class="input-group">
+                <label>Senha (mínimo 6 caracteres)</label>
+                <input type="password" id="senha" required placeholder="••••••••">
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p id="mensagem"></p>
+        <div class="link">
+            Já tem uma conta? <a href="login.html">Fazer login</a>
+        </div>
+    </div>
 
-<div class="login-box">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+        const firebaseConfig = {
+            apiKey: "AIzaSyAAxRWMGN27Anqcpw6ibtNaM7QZBcGZo0I",
+            authDomain: "zyntra-d6857.firebaseapp.com",
+            projectId: "zyntra-d6857",
+            storageBucket: "zyntra-d6857.firebasestorage.app",
+            messagingSenderId: "306681094428",
+            appId: "1:306681094428:web:754c81e56bcf41937a1ad9",
+            measurementId: "G-9PQGNC1FY3"
+        };
 
-<h1>
-ZYNTRA<span>.</span>
-</h1>
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
 
+        const formCadastro = document.getElementById('formCadastro');
+        const mensagem = document.getElementById('mensagem');
 
-<h2>
-Criar empresa
-</h2>
+        formCadastro.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
 
-
-<input 
-id="company"
-placeholder="Nome da empresa"
->
-
-
-<input 
-id="newEmail"
-type="email"
-placeholder="Email"
->
-
-
-<input 
-id="newPassword"
-type="password"
-placeholder="Senha"
->
-
-
-<button id="register">
-Cadastrar
-</button>
-
-
-</div>
-
-
-
-<script src="script.js"></script>
-
-
+            createUserWithEmailAndPassword(auth, email, senha)
+                .then((userCredential) => {
+                    mensagem.style.color = '#4ade80';
+                    mensagem.textContent = 'Conta criada com sucesso! Redirecionando...';
+                    setTimeout(() => {
+                        window.location.href = 'index.html'; // Volta para a página principal logado
+                    }, 1500);
+                })
+                .catch((error) => {
+                    mensagem.style.color = '#f87171';
+                    if (error.code === 'auth/email-already-in-use') {
+                        mensagem.textContent = 'Este e-mail já está cadastrado.';
+                    } else if (error.code === 'auth/weak-password') {
+                        mensagem.textContent = 'A senha precisa ter pelo menos 6 caracteres.';
+                    } else {
+                        mensagem.textContent = 'Erro ao cadastrar. Tente novamente.';
+                    }
+                });
+        });
+    </script>
 </body>
-
 </html>
