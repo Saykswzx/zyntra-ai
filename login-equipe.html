@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyntra | Login da Equipe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex items-center justify-center px-4">
+
+    <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl max-w-md w-full">
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 mb-4 text-xl">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h1 class="text-2xl font-bold text-white">Área da Equipe</h1>
+            <p class="text-sm text-slate-400 mt-1">Digite a senha de acesso para continuar</p>
+        </div>
+
+        <form onsubmit="fazerLogin(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">Senha de Acesso</label>
+                <input type="password" id="senha" placeholder="••••••••" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition text-sm">
+            </div>
+
+            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 rounded-lg transition shadow-lg shadow-indigo-600/20 text-sm">
+                Entrar no Painel
+            </button>
+        </form>
+
+        <div class="text-center mt-6">
+            <a href="index.html" class="text-xs text-slate-500 hover:text-slate-300 transition">
+                <i class="fa-solid fa-arrow-left mr-1"></i> Voltar para o site principal
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function fazerLogin(event) {
+            event.preventDefault();
+            const senhaDigitada = document.getElementById("senha").value;
+            
+            // Defina a senha da equipe aqui
+            const senhaCorreta = "zyntra2026";
+
+            if (senhaDigitada === senhaCorreta) {
+                // Redireciona para o painel se a senha estiver correta
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Senha incorreta! Tente novamente.");
+                document.getElementById("senha").value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
