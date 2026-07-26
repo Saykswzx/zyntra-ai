@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zyntra | Automação Inteligente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,12 +16,15 @@
     <header>
         <div class="logo">ZYNTRA</div>
         
-        <nav>
+        <nav style="display: flex; align-items: center; gap: 20px;">
             <a href="#inicio">Início</a>
             <a href="#solucoes">Soluções</a>
             <a href="#planos">Planos</a>
             <a href="contato.html">Contato</a>
             <a href="login.html" class="nav-login">Login</a>
+            <a href="painel.html" onclick="verificarAcesso(event)" style="font-size: 13px; color: #64748b; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color 0.2s;" onmouseover="this.style.color='#cbd5e1'" onmouseout="this.style.color='#64748b'">
+                <i class="fa-solid fa-lock"></i> Equipe
+            </a>
         </nav>
     </header>
 
@@ -122,6 +126,22 @@
             const input = document.getElementById('userInput');
             input.value = texto;
             input.focus();
+        }
+
+        // Função de Proteção por Senha para a Área da Equipe
+        function verificarAcesso(event) {
+            event.preventDefault(); // Impede o link de abrir direto
+            
+            let senhaDigitada = prompt("Digite a senha de acesso da Equipe Zyntra:");
+            
+            // Defina a sua senha secreta aqui (você pode alterar depois)
+            let senhaCorreta = "zyntra2026"; 
+            
+            if (senhaDigitada === senhaCorreta) {
+                window.location.href = "painel.html"; // Vai para o painel se a senha estiver certa
+            } else if (senhaDigitada !== null) {
+                alert("Senha incorreta! Acesso negado.");
+            }
         }
     </script>
     <script src="script.js"></script>
