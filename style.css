@@ -262,7 +262,7 @@ button:hover {
 }
 
 /* =========================
-   DEMO / CHAT
+   DEMO / CHAT (AJUSTADO O ESPAÇAMENTO)
 ========================= */
 
 .demo {
@@ -270,9 +270,20 @@ button:hover {
     text-align: center;
 }
 
+/* Espaçamento elegante adicionado aqui */
+.demo h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.demo p {
+    color: #a1a1aa;
+    margin-bottom: 40px;
+}
+
 .chat-box {
     max-width: 500px;
-    margin: 40px auto;
+    margin: 0 auto;
     background: #0b0b0b;
     border: 1px solid #222;
     border-radius: 25px;
