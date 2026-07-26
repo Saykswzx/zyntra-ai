@@ -73,7 +73,7 @@
 
     <section id="demo" class="demo">
         <h2>Teste a Zyntra AI</h2>
-        <p>Converse com nossa inteligência artificial ou use o atalho profissional abaixo:</p>
+        <p>Converse com nossa inteligência artificial ou use os atalhos profissionais abaixo:</p>
 
         <div class="chat-box">
             <div class="chat-header">🤖 Zyntra Assistant</div>
@@ -82,11 +82,13 @@
             </div>
 
             <div class="quick-actions" style="display: flex; gap: 6px; padding: 10px; background: #0f172a; flex-wrap: wrap; border-top: 1px solid #334155;">
-                <button onclick="iniciarAgendamento()" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: bold;">📅 Agendar Atendimento</button>
+                <button onclick="iniciarAgendamento()" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: bold;">📅 Agendar Atendimento</button>
+                <button onclick="consultarServicos()" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: bold;">💡 Nossos Serviços</button>
+                <button onclick="falarSuporte()" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: bold;">📞 Falar com Suporte</button>
             </div>
 
             <div class="chat-input">
-                <input id="userInput" type="text" placeholder="Digite sua mensagem ou clique em agendar...">
+                <input id="userInput" type="text" placeholder="Digite sua mensagem ou use os atalhos...">
                 <button id="send">Enviar</button>
             </div>
         </div>
